@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Version>0.1</Version>
+    <VersionSuffix>alpha</VersionSuffix>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <PublishSingleFile>true</PublishSingleFile>
+    <PublishTrimmed>false</PublishTrimmed>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- for console awesomeness -->
+    <PackageReference Include="Spectre.Console" Version="0.46.0" />
+    <!-- to get text from clipboard -->
+    <PackageReference Include="TextCopy" Version="6.2.1" />
+    <!-- to parse the ~/.kube/config -->
+    <PackageReference Include="YamlDotNet" Version="13.0.0" />
+  </ItemGroup>
+  
+  <!-- uncomment this to copy the new binary automatically -->
+<!--  <Target Name="PostCompile" AfterTargets="Build" Condition="$(Configuration) == 'Release'">-->
+<!--    <Message Importance="high" Text="Copying binary to $(HOME)/.local/bin" />-->
+<!--    <Message Importance="high" Text="target=$(TargetDir) project=$(ProjectName)" />-->
+<!--    <Copy SourceFiles="$(TargetDir)publish/$(ProjectName)" DestinationFolder="$(HOME)/.local/bin" />-->
+<!--  </Target>-->
+
+</Project>
