@@ -14,6 +14,14 @@ Oh, why C#? Well, I wanted to do something in C# because I didn't have any exper
 - Import a new context from clipboard
 
 ## How to run
-Run `dotnet publish -c Release --sc`. This should result in a single binary.
-
+Run `dotnet publish -c Release --sc`. This should result in a single binary (`kube.net`).
 The binary is published to `bin/Release/net7.0/osx-arm64/publish/`, so if the copy fails you can copy it yourself.
+
+To run it, simply execute the binary. To exit, press Ctrl+C.
+
+## Importing a context
+The option 'import from clipboard' fetches the contents of your clipboard and tries to parse it as a kubeconfig. If successful, the new context should be visible in the list.
+
+## Todo
+- UX: confirmations here and there, maybe some info on the selected context (and the about-to-be-imported context)
+- Expand the KubeConfigDef class to avoid losing data on import+write.
