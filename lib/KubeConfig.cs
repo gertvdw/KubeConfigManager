@@ -95,7 +95,7 @@ public class KubeConfig
     /// Merge two kube configurations into one and write to disk
     /// </summary>
     /// <param name="snippet">An instance of KubeConfigDef that you wish to merge into your kube config</param>
-    public void MergeConfig(KubeConfigDef snippet)
+    public List<string> MergeConfig(KubeConfigDef snippet) 
     {
         // see: KubernetesClientConfiguration::MergeConfig
         // hell naw
@@ -109,8 +109,11 @@ public class KubeConfig
             kind = config.kind,
             preferences = config.preferences
         };
-        
+
         SaveConfig(newConfig);
+
+        // Return all the context names that were added
+        return snippet.contexts.Select(ctx => ctx.name).OrderBy(ctx => ctx.FirstOrDefault()).ToList();
     }
 
     /// <summary>

@@ -123,8 +123,15 @@ public class KubeConsole
         try
         {
             var config = _config.LoadConfigFromClipboard();
-            if (config != null)
-                _config.MergeConfig(config);
+            if (config != null) {
+                var contextNames = _config.MergeConfig(config);
+
+                if(contextNames.Count > 0)
+                {
+                    var commaSeparated = string.Join(", ", contextNames);
+                    StatusLine($"Imported [bold green on black]{commaSeparated}[/]");
+                }
+            }
             else StatusLine("Valid YAML, but nothing returned");
         }
         catch (Exception e)
