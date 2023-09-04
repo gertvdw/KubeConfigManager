@@ -135,11 +135,9 @@ public class KubeConfig
     /// </summary>
     private void BackupCurrentConfig()
     {
-        var ts = DateTime.Now;
-        var backupFileName = $"{_defaultBackupFile}-{ts.ToString("MM-dd-yy-hhmmss")}";
         try
         {
-            File.Copy(_defaultConfigFile, backupFileName);
+            File.Copy(_defaultConfigFile, _defaultBackupFile);
         }
         catch (Exception e)
         {
