@@ -137,7 +137,7 @@ public class KubeConfig
     {
         try
         {
-            File.Copy(_defaultConfigFile, _defaultBackupFile);
+            File.Copy(_defaultConfigFile, _defaultBackupFile, true);
         }
         catch (Exception e)
         {
